@@ -12,7 +12,7 @@ import tempfile
 from TTS.api import TTS
 
 # Environment variable for your secret key (example)
-api_key = os.getenv('API_KEY')
+api_key = os.getenv('TEXT-TO-VOICE-SECRET-KEY')
 
 # Print the API key (only for testing purposes, avoid printing sensitive info in production)
 print(f"The API Key is: {api_key}")
