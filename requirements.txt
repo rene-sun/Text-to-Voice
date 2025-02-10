@@ -1,0 +1,6 @@
+gradio
+TTS
+torch
+torchaudio
+pydub
+numpy
