@@ -13,8 +13,6 @@ from TTS.api import TTS
 
 # Environment variable for your secret key (example)
 api_key = os.getenv('TEXT-TO-VOICE-SECRET-KEY')
-
-# Print the API key (only for testing purposes, avoid printing sensitive info in production)
 print(f"The API Key is: {api_key}")
 
 # Define a mapping from (Gender, Speed, Tone) to a speaker ID
@@ -68,11 +66,14 @@ interface = gr.Interface(
     description="Choose English text and characteristics to generate audio"
 )
 
+# Fetch the port from the environment variable (Render sets this)
+port = int(os.environ.get("PORT", 8080))
+
 # Launch the app on Render
 # interface.launch(server_name="0.0.0.0", server_port=8080)
 # interface.launch(auth=[("Renesun", "2025"), ("Pricy", "2025")], share=True)
 interface.launch(
     auth=[("Renesun", "2025"), ("Pricy", "2025")],
     server_name="0.0.0.0",
-    server_port=8080
+    server_port=port
 )
