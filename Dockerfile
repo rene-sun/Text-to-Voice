@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install system dependencies (like espeak-ng)
-RUN apt-get update && apt-get install -y espeak-ng
+RUN apt-get update && apt-get install -y espeak-ng ffmpeg libsndfile1
 
 # Copy the rest of the application code into the container
 COPY . .
@@ -20,7 +20,7 @@ COPY . .
 EXPOSE 8080
 
 # Set environment variables (optional, like your API keys)
-ENV API_KEY="your-api-key-here"
+ENV TEXT-TO-VOICE-SECRET-KEY="8ef086c4fa9cc3bb3e00ba8b94a5a2e0"
 
 # Command to run the application
 CMD ["python", "app.py"]
